@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  VIEWER
+  ANALYST
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+model User {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  password     String
+  name         String
+  role         Role         @default(VIEWER)
+  status       UserStatus   @default(ACTIVE)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          String          @id @default(uuid())
+  amount      Decimal         @db.Decimal(15, 2)
+  type        TransactionType
+  category    String
+  date        DateTime
+  notes       String?
+  deletedAt   DateTime?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  userId      String
+  user        User            @relation(fields: [userId], references: [id])
+
+  @@index([type])
+  @@index([category])
+  @@index([date])
+  @@index([userId])
+}
+
+model AuditLog {
+  id               String   @id @default(uuid())
+  action           String
+  entity           String
+  entityId         String
+  performedBy      String
+  performedByEmail String
+  details          Json?
+  createdAt        DateTime @default(now())
+
+  @@index([entity])
+  @@index([performedBy])
+  @@index([createdAt])
+  @@index([action])
+}
