@@ -677,9 +677,10 @@ async function main() {
   console.log('   mike@finance.dev     (VIEWER)    — Mike Chen');
   console.log('   priya@finance.dev    (ANALYST)   — Priya Patel\n');
 
-  const deleted = await prisma.transaction.deleteMany({});
-  console.log(`🗑️  Cleared ${deleted.count} existing transaction(s)\n`);
-
+  if (process.env.NODE_ENV !== 'production') {
+    const deleted = await prisma.transaction.deleteMany({});
+    console.log(`🗑️ Cleared ${deleted.count} existing transaction(s)\n`);
+  }
   const rows = buildTransactions({ admin, analyst, viewer, sarah, mike, priya });
 
   const BATCH = 250;
@@ -687,7 +688,7 @@ async function main() {
     const chunk = rows.slice(i, i + BATCH);
     await prisma.transaction.createMany({ data: chunk });
   }
-
+  
   const byUser = await prisma.transaction.groupBy({
     by: ['userId'],
     _count: { _all: true },
