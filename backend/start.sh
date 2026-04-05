@@ -1,3 +1,4 @@
+# force rebuild
 #!/bin/sh
 set -e
 
