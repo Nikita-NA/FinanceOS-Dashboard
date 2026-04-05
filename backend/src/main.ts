@@ -6,7 +6,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api/v1');
+  // Updated to exclude the root path from the global prefix
+  app.setGlobalPrefix('api/v1', {
+    exclude: ['/'], 
+  });
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -47,8 +50,10 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
 
-  console.log(`\n🚀 Finance Backend running on: http://localhost:${port}/api/v1`);
-  console.log(`📚 Swagger Docs:  http://localhost:${port}/api/docs\n`);
+  // Updated logs to show the corrected access points
+  console.log(`\n🚀 Finance Backend Info: http://localhost:${port}/`);
+  console.log(`📡 API Endpoints:       http://localhost:${port}/api/v1`);
+  console.log(`📚 Swagger Docs:        http://localhost:${port}/api/docs\n`);
 }
 
 bootstrap();
