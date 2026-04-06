@@ -10,6 +10,20 @@ A full-stack finance dashboard with role-based access control.
 | **Swagger UI (API Docs)** | [https://financeos-dashboard-production.up.railway.app/api/docs](https://financeos-dashboard-production.up.railway.app/api/docs) |
 | **Demo Video** | [https://drive.google.com/drive/folders/1SkTT3IK1L1LzPj4X5wwkKw8aMux9eIH3?usp=sharing](https://drive.google.com/drive/folders/1SkTT3IK1L1LzPj4X5wwkKw8aMux9eIH3?usp=sharing) |
 
+## Screenshots
+
+**Dashboard — Financial Health Score, Period Comparison, Budget Goals**
+![Dashboard](docs/screenshots/dashboard.png)
+
+**Analytics — Monthly Trends, Category Breakdown, Weekly Trends, Ratio**
+![Analytics](docs/screenshots/analytics.png)
+
+**Transactions — Export CSV/JSON, Filters, Soft Delete, Restore**
+![Transactions](docs/screenshots/transactions.png)
+
+**Insights — Spending Patterns, Income Stability, Win/Risk Cards**
+![Insights](docs/screenshots/insights.png)
+
 ## Project Structure
 
 | Path | Description |
@@ -29,7 +43,7 @@ Open [http://localhost:5173](http://localhost:5173)
 
 ## Test Accounts
 
-All accounts use password **`password123`** (see seed in `backend/prisma/seed.ts`).
+All accounts use password **`password123`**
 
 | Email | Role |
 |-------|------|
@@ -49,4 +63,4 @@ All accounts use password **`password123`** (see seed in `backend/prisma/seed.ts
 
 ## License
 
-Private / UNLICENSED (see package files in each package).
+Private / UNLICENSED
