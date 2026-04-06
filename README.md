@@ -2,6 +2,14 @@
 
 A full-stack finance dashboard with role-based access control.
 
+## Live Links
+
+| | Link |
+|---|---|
+| **Live App** | [https://dependable-generosity-production.up.railway.app/login](https://dependable-generosity-production.up.railway.app/login) |
+| **Swagger UI (API Docs)** | [https://financeos-dashboard-production.up.railway.app/api/docs](https://financeos-dashboard-production.up.railway.app/api/docs) |
+| **Demo Video** | [https://drive.google.com/drive/folders/1SkTT3IK1L1LzPj4X5wwkKw8aMux9eIH3?usp=sharing](https://drive.google.com/drive/folders/1SkTT3IK1L1LzPj4X5wwkKw8aMux9eIH3?usp=sharing) |
+
 ## Project Structure
 
 | Path | Description |
@@ -10,7 +18,6 @@ A full-stack finance dashboard with role-based access control.
 | `frontend/` | React + Vite + Tailwind dashboard |
 
 ## Quick Start (Docker)
-
 ```bash
 cd backend
 docker compose up --build -d
@@ -35,7 +42,8 @@ All accounts use password **`password123`** (see seed in `backend/prisma/seed.ts
 
 ## Documentation
 
-- **Swagger (interactive API):** [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
+- **Live Swagger (interactive API):** [https://financeos-dashboard-production.up.railway.app/api/docs](https://financeos-dashboard-production.up.railway.app/api/docs)
+- **Local Swagger:** [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
 - **Backend README:** [backend/README.md](backend/README.md)
 - **Frontend README:** [frontend/README.md](frontend/README.md)
 
